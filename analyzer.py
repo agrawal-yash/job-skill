@@ -1,10 +1,17 @@
+import spacy
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    from spacy.cli import download
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 # Job Scraper & Skill Analyzer - MVP Version
 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import re
-import spacy
 import streamlit as st
 
 # Load English NLP model
