@@ -1,10 +1,4 @@
-import spacy
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    from spacy.cli import download
-    download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
+
 
 # Job Scraper & Skill Analyzer - MVP Version
 
@@ -14,8 +8,13 @@ import pandas as pd
 import re
 import streamlit as st
 
-# Load English NLP model
-nlp = spacy.load("en_core_web_sm")
+import spacy
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    from spacy.cli import download
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Pre-defined skills list (expandable)
 skills_list = ['python', 'java', 'c++', 'sql', 'excel', 'javascript', 'react', 'node', 'aws', 'django', 'rest api', 'tensorflow', 'pytorch']
